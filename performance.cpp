@@ -12,6 +12,15 @@ void performance_test::export_to_file(const char* name){
 
 }
 
+
+  void performance_test::export_to_css(const char* name){
+    FILE* f = fopen(name,"w");
+    for (int i = 0; i < this->max_rozmiar;i++){
+      fprintf(f, "%d,%lu,%lu\n",i,this->time[i],this->comparasions[i] );
+    }
+
+  }
+
 inline void performance_test::random_fill(int * tab,int size){
   for (int i = 0 ; i < size;++i){
     tab[i] = rand() % size;
