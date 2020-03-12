@@ -3,12 +3,16 @@
 #include <stdlib.h>
 #include <time.h>
 
+#ifndef NUMBER
+#define NUMBER 10000
+#endif
+
 class performance_test{
 private:
   int max_rozmiar;
 
-  long unsigned int time[1000];
-  long unsigned int comparasions[1000];
+  long unsigned int time[NUMBER];
+  long unsigned int comparasions[NUMBER];
 
 public:
 

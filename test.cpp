@@ -1,6 +1,8 @@
 #include <iostream>
 #include "performance.h"
 
+#define NUMBER 1000
+
 void swap(int& a, int&b);
 int sort(int* tab,int n);
 

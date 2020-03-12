@@ -1,6 +1,6 @@
 #include "performance.h"
 
-performance_test::performance_test():max_rozmiar(1000){
+performance_test::performance_test():max_rozmiar(NUMBER){
   //srand(time(NULL));
 }
 
