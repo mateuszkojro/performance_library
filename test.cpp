@@ -1,7 +1,6 @@
 #include <iostream>
 #include "performance.h"
 
-#define NUMBER 1000
 
 void swap(int& a, int&b);
 int sort(int* tab,int n);
@@ -10,7 +9,7 @@ int main(){
   performance_test test1;
 
   test1.analize(sort);
-  test1.export_to_file("wyniki.txt");
+  test1.export_to_json("wyniki.json");
 
   return 0;
 }

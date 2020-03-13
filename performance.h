@@ -3,9 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#ifndef NUMBER
-#define NUMBER 10000
-#endif
+#define NUMBER 5000
+
 
 class performance_test{
 private:
@@ -21,6 +20,7 @@ public:
   void analize(int( * func )( int*, int ) );
   void export_to_file(const char* name);
   void export_to_css(const char* name);
+  void export_to_json(const char* name);
   void random_fill(int *,int );
 
 };

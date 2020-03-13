@@ -1,0 +1,151 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+
+
+
+      <table style="width:100%">
+        <tr>
+          <td style="width:50%" ><canvas id="chart1"></canvas></td><td><canvas id="chart2"></canvas></td>
+        </tr>
+      </table>
+
+  <script>
+
+
+$.getJSON('wyniki.json', function(data) {
+  let obj;
+  obj = data;
+
+  console.log(obj);
+
+      var data_1 = [[100,200,300,34],[100,200,300,34]];
+      var data_2 = [[100,200,200,10],[200,100,50,34]];
+
+    var chart1 = document.getElementById('chart1').getContext('2d');
+    var myChart1 = new Chart(chart1, {
+        type: 'line',
+        data: {
+            labels: obj.label,
+            datasets: [{
+                label: 'time in milliseconds',
+                data: obj.time,
+                backgroundColor:
+                    'rgba(0, 0, 255, 0.1)',
+                borderColor:
+                    'rgba(0, 0, 255, 1)',
+                borderWidth: 1,
+                fill: true
+            }]
+        },
+
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var chart2 = document.getElementById('chart2').getContext('2d');
+    var myChart2 = new Chart(chart2, {
+        type: 'line',
+        data: {
+            labels: obj.label,
+            datasets: [
+            {
+                label: 'comparasions',
+                data: obj.comparasions,
+                backgroundColor:
+                    'rgba(0, 255, 0, 0.1)',
+                borderColor:
+                    'rgba(0, 255, 0, 1)',
+                borderWidth: 1,
+                fill: true
+            }]
+        },
+
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+  //console.log(data);
+});
+
+
+
+async function load() {
+    let url = 'wyniki.json';
+    obj = await (await fetch(url)).json();
+
+}
+
+console.log(success);
+console.log(obj);
+
+obj = JSON.parse(obj);
+
+    var data_1 = [[100,200,300,34],[100,200,300,34]];
+    var data_2 = [[100,200,200,10],[200,100,50,34]];
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: obj.label,
+          datasets: [{
+              label: 'bubble sort'+ ' ' +'time in milliseconds',
+              data: obj.time,
+              backgroundColor:
+                  'rgba(0, 0, 255, 0.1)',
+              borderColor:
+                  'rgba(0, 0, 255, 1)',
+              borderWidth: 1,
+              fill: true
+          },
+          {
+              label: 'insert sort'+ ' ' +'time in milliseconds',
+              data: obj.comparasions,
+              backgroundColor:
+                  'rgba(0, 255, 0, 0.1)',
+              borderColor:
+                  'rgba(0, 255, 0, 1)',
+              borderWidth: 1,
+              fill: true
+          }]
+      },
+
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+  </script>
+
+</body>
+</html>
