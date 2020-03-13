@@ -16,5 +16,6 @@ jobs:
 
     - name: compile
       run: g++ test.cpp performance.cpp -o test
-    - name: run it
-      run: ./test
+    # uruchamianie programu every push
+    #- name: run it
+    #  run: ./test
