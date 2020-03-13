@@ -4,6 +4,7 @@
 #include <time.h>
 
 #define NUMBER 5000
+#define DENSITY 200
 
 
 class performance_test{
