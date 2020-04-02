@@ -3,8 +3,8 @@
 
 
 void swap(int& a, int&b);
-int sort(int* tab,int n);
-
+int bubble_sort(int* tab,int n);
+int insert_sort(int* tab,int n);
 int main(){
   performance_test test1;
 
@@ -14,7 +14,7 @@ int main(){
   return 0;
 }
 
-int sort(int* tab,int n){
+int bubble_sort(int* tab,int n){
 int licznik = 0;
 for (int j = 0; j < n-1 ;j++){
   for (int i =0 ; i < n-1;i++){
@@ -23,6 +23,28 @@ for (int j = 0; j < n-1 ;j++){
   }
 }
 return licznik;
+}
+
+int insert_sort(int *tab, int size){
+    int comp = 0;
+    int j = size - 2;
+    while (j >= 1){
+     comp++;
+     int x = tab[j];
+     int i = j + 1;
+
+        if(!(i <= size) || x < tab[i]){
+            comp++;
+            tab[i - 1] = x;
+            j--;
+        }
+        else{
+            comp++;
+            tab[i - 1] = tab[i];
+            i++;
+        }
+    }
+return comp;
 }
 
 void swap(int& a, int&b){
