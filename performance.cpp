@@ -48,14 +48,14 @@ void performance_test::export_to_json(const char* name){
 }
 
 inline void performance_test::random_fill(int * tab,int size){
-  for (int i = 0 ; i < size;++i){
+  for (int i = 0 ; i < size;i = ++i){
     tab[i] = rand() % size;
   }
 }
 
 void performance_test::analize(int( * func )( int*, int ) ){
 
-  for (int i = 0 ; i < this->max_rozmiar ; ++i){
+  for (int i = 0 ; i < this->max_rozmiar ;++i){
     int* tab = new int [i];
     random_fill(tab,i);
     auto start = std::chrono::high_resolution_clock::now();

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define NUMBER 5000
+#define NUMBER 130
 #define DENSITY 200
 
 
